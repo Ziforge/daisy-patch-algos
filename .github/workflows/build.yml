@@ -14,7 +14,7 @@ on:
 
 env:
   LIBDAISY_VERSION: v7.0.1
-  DAISYSP_VERSION: v1.0.0
+  DAISYSP_VERSION: V1.0.0
 
 jobs:
   build:
@@ -38,26 +38,6 @@ jobs:
             sources/DaisySP
           key: daisy-libs-${{ env.LIBDAISY_VERSION }}-${{ env.DAISYSP_VERSION }}
 
-      - name: Setup libDaisy
-        run: |
-          if [ ! -d sources/libDaisy ]; then
-            git clone https://github.com/electro-smith/libDaisy.git sources/libDaisy
-          fi
-          cd sources/libDaisy
-          git fetch --tags
-          git checkout "$LIBDAISY_VERSION" 2>/dev/null || git checkout "tags/${LIBDAISY_VERSION}"
-          make -j$(nproc) || true
-
-      - name: Setup DaisySP
-        run: |
-          if [ ! -d sources/DaisySP ]; then
-            git clone https://github.com/electro-smith/DaisySP.git sources/DaisySP
-          fi
-          cd sources/DaisySP
-          git fetch --tags
-          git checkout "$DAISYSP_VERSION" 2>/dev/null || git checkout "tags/${DAISYSP_VERSION}"
-          make -j$(nproc) || true
-
       - name: Build all projects
         env:
           GH_TOKEN: ${{ github.token }}
@@ -77,7 +57,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-logs
-          path: build_logs/
+          path: output/*.build.log
           retention-days: 30
 
   release:

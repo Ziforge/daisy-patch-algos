@@ -1,7 +1,7 @@
 {
   "_comment": "Daisy Patch Algo Collection - Project Manifest",
   "_libdaisy_version": "v7.0.1",
-  "_daisysp_version": "v1.0.0",
+  "_daisysp_version": "V1.0.0",
   "projects": [
     {
       "name": "DaisyExamples-Patch-Compressor",
