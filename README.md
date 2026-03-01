@@ -22,7 +22,7 @@ This repository exists **for learning and education purposes only** — to help 
 
 ## Build Status
 
-**54 of 102 buildable projects produce firmware** (32 built from source + 22 downloaded from author releases). The remaining 48 need updates to compile against current libDaisy v7.0.1 / DaisySP V1.0.0 and are marked with **"needs update"** in the catalog below.
+**54 of 131 buildable projects produce firmware** (32 built from source + 22 downloaded from author releases). The remaining projects need updates to compile against current libDaisy v7.0.1 / DaisySP V1.0.0 and are marked with **"needs update"** in the catalog below. Some projects use non-standard build systems (CMake, Cargo/Rust, STM32CubeIDE, Arduino) and are cataloged but not yet integrated into the automated build.
 
 Common issues: older libDaisy API (`MoogLadder` removed, `OledDisplay` template changes, `dsy_gpio` method renames), hardcoded paths, missing submodules. **PRs welcome** — most fixes are straightforward find-and-replace API migrations. See the [build logs](../../actions) for specific errors.
 
@@ -123,6 +123,8 @@ Source: [electro-smith/DaisyExamples](https://github.com/electro-smith/DaisyExam
 | MiniVerb | [benjiaomodular/MiniVerb](https://github.com/benjiaomodular/MiniVerb) | Through-hole reverb Eurorack module | Seed | Unknown |
 | DaisyVerb (benjiao) | [benjiaomodular/DaisyVerb](https://github.com/benjiaomodular/DaisyVerb) | Simple Eurorack reverb module | Seed | Unknown |
 | terrarium-reverb | [fxwiegand/terrarium-reverb](https://github.com/fxwiegand/terrarium-reverb) | Reverb for Terrarium (bin available) | Terrarium | Unknown |
+| PlateauNEVersio | [abluenautilus/PlateauNEVersio](https://github.com/abluenautilus/PlateauNEVersio) | Valley Plateau reverb port for NE Versio | Versio | GPL-3.0 |
+| Qverb | [Quinienl/Qverb](https://github.com/Quinienl/Qverb) | Reverb for kxmx Bluemchen (bin in repo) | Bluemchen | MIT |
 
 ---
 
@@ -142,6 +144,9 @@ Source: [electro-smith/DaisyExamples](https://github.com/electro-smith/DaisyExam
 | DaisyDelay | [MaxBauV/DaisyDelay](https://github.com/MaxBauV/DaisyDelay) | Delay for Patch SM | Patch SM | Unknown |
 | PatchSmDelay | [jasonbirchler/PatchSmDelay](https://github.com/jasonbirchler/PatchSmDelay) | Delay firmware for patch.Init() | Patch.Init() | Unknown |
 | DelayOfGame | [graphex/DelayOfGame](https://github.com/graphex/DelayOfGame) | Audio delay utility | Pod | Unknown |
+| Kaseta | [zlosynth/kaseta](https://github.com/zlosynth/kaseta) | Saturating tape delay and feedback sculptor (Rust, bin available) | Patch SM | CC-BY-SA-4.0 |
+| Tap-O-Matic | [cormallen/tap-o-matic](https://github.com/cormallen/tap-o-matic) | OAM Time Machine fork with pan, CV level, filters | Patch SM | Other |
+| TimeMachine (Rozendal) | [TimoRozendal/time-machine](https://github.com/TimoRozendal/time-machine) | OAM Time Machine fork with resonant filters per tap (bin available) | Patch SM | Other |
 
 ---
 
@@ -200,6 +205,7 @@ Source: [electro-smith/DaisyExamples](https://github.com/electro-smith/DaisyExam
 | Daisy-Harmoniqs | [Krakenpine/Daisy-Harmoniqs](https://github.com/Krakenpine/Daisy-Harmoniqs) | 6-10 voice additive, 8 harmonics each *(needs update)* | Seed | Unknown |
 | daisy-fast-stft | [Farmer2K5/daisy-fast-stft](https://github.com/Farmer2K5/daisy-fast-stft) | STFT framework for spectral processing | Seed | Unknown |
 | Venus (FunBox) | [GuitarML/FunBox](https://github.com/GuitarML/FunBox) | Spectral reverb via FFT | FunBox | MIT |
+| Achordion | [zlosynth/achordion](https://github.com/zlosynth/achordion) | Chord-crafting quantizing wavetable oscillator (Rust, bin available) | Patch SM | CC-BY-SA-4.0 |
 
 ---
 
@@ -244,6 +250,7 @@ Source: [electro-smith/DaisyExamples](https://github.com/electro-smith/DaisyExam
 | WavPlayer | [sedurCode/WavPlayer](https://github.com/sedurCode/WavPlayer) | Multitrack sample player | Pod | Unknown |
 | SAMPLER CNA | [crearttech/Desarrollo-SAMPLER_CNA-CREART.TECH](https://github.com/crearttech/Desarrollo-SAMPLER_CNA-CREART.TECH) | Sample-based instrument | Seed | Unknown |
 | OAM Time Machine | [oamodular/time-machine](https://github.com/oamodular/time-machine) | Looper/recorder for Eurorack with expander | Seed | Other |
+| Gloop | [cutlasses/GloopResources](https://github.com/cutlasses/GloopResources) | 4-playhead performance looper (firmware only, bins in repo) | Seed | Unknown |
 
 ---
 
@@ -321,6 +328,8 @@ Index: [Maxhodges/noise-engineering-firmware-index](https://github.com/Maxhodges
 | Stray Drum | [jasmineandolivetrees.com](https://jasmineandolivetrees.com/pages/stray-drum-versio-firmware) | Drum synthesis | Jasmine & Olive Trees |
 | Blossom | [abluenautilus/Blossom](https://github.com/abluenautilus/Blossom) | Alt firmware for Qu-Bit Bloom | Blue Nautilus |
 | Audrey II Versio | [KoSv/DaisyVersio_Audrey_II](https://github.com/KoSv/DaisyVersio_Audrey_II) | Audrey II synth ported to Versio | KoSv |
+| PlateauNEVersio | [abluenautilus/PlateauNEVersio](https://github.com/abluenautilus/PlateauNEVersio) | Valley Plateau reverb | Blue Nautilus |
+| JawariLegio | [abluenautilus/JawariLegio](https://github.com/abluenautilus/JawariLegio) | Tanpura machine for NE Legio (bin available) | Blue Nautilus |
 
 ---
 
@@ -329,6 +338,8 @@ Index: [Maxhodges/noise-engineering-firmware-index](https://github.com/Maxhodges
 | Project | URL | Description | Hardware | License |
 |---------|-----|-------------|----------|---------|
 | Aurora Firmwares | [jfriess/Aurora-Firmwares](https://github.com/jfriess/Aurora-Firmwares) | Custom firmware for Qu-Bit Aurora (Tempest, bin available) | Aurora | Unknown |
+| Aurora HSO | [thesquaregroot/aurora-hso](https://github.com/thesquaregroot/aurora-hso) | Harmonic Shift Operator firmware (bin available) | Aurora | MIT |
+| SpectralBandSweep | [Tsarpf/SpectralBandSweep](https://github.com/Tsarpf/SpectralBandSweep) | Spectral FFT band sweep and comb filter | Aurora | MIT |
 
 ---
 
@@ -398,6 +409,8 @@ Index: [Maxhodges/noise-engineering-firmware-index](https://github.com/Maxhodges
 | HSP_Protoseed | [Harold-Street-Pedal-Company/HSP_Protoseed](https://github.com/Harold-Street-Pedal-Company/HSP_Protoseed) | Arduino library for quick pedal prototyping | Seed | Unknown |
 | hothouse (andyhunti) | [andyhunti/hothouse](https://github.com/andyhunti/hothouse) | Audio projects for Hothouse platform | Hothouse | Unknown |
 | How-to-Make-a-Guitar-Pedal | [skngh/How-to-Make-a-Guitar-Pedal](https://github.com/skngh/How-to-Make-a-Guitar-Pedal) | YouTube course: build a digital guitar pedal | Seed | Unknown |
+| ChorusPetal | [danstronoid/ChorusPetal](https://github.com/danstronoid/ChorusPetal) | Chorus echo pedal for Terrarium | Terrarium | Unknown |
+| terrarium-synth | [schult/terrarium-synth](https://github.com/schult/terrarium-synth) | Monophonic pitch-tracking synth pedal (bin available) | Terrarium | MIT |
 
 ---
 
@@ -410,7 +423,8 @@ Index: [Maxhodges/noise-engineering-firmware-index](https://github.com/Maxhodges
 | Loewenzahnhonig | [wgd-modular/loewenzahnhonig-firmware](https://github.com/wgd-modular/loewenzahnhonig-firmware) | Multi-firmware Eurorack module *(needs update)* | Unknown |
 | Veno-Echo | [AdamFulford/Veno-Echo](https://github.com/AdamFulford/Veno-Echo) | Stereo delay Eurorack module | Unknown |
 | simple_canvas | [lucblender/simple_canvas](https://github.com/lucblender/simple_canvas) | Buchla Easel-inspired west coast synth *(needs update)* | Unknown |
-| gritwave eurorack | [gritwave/eurorack](https://github.com/gritwave/eurorack) | Eurorack firmware with FFT, C++20 | Unknown |
+| gritwave eurorack | [gritwave/eurorack](https://github.com/gritwave/eurorack) | 5-module suite: amp sim, FX, dynamics, wavetable, noise (bins available) | MIT |
+| Rawyaw Media | [rawyawmedia/eurorack](https://github.com/rawyawmedia/eurorack) | Dizygote, Monolith, Torus modules (firmware bins only) | Unknown |
 
 ---
 
@@ -422,6 +436,7 @@ Index: [Maxhodges/noise-engineering-firmware-index](https://github.com/Maxhodges
 | Working patches (hvcc) | [edition1304/working-patches-for-patch.Init-hvcc-](https://github.com/edition1304/working-patches-for-patch.Init-hvcc-) | PureData patches compiled via hvcc | Unknown |
 | Flora (blackboxaudio) | [blackboxaudio/flora](https://github.com/blackboxaudio/flora) | Lotus, Kudzu, Lily instruments *(needs update)* | Unknown |
 | ProteusDaisyPatchInit | [abluenautilus/ProteusDaisyPatchInit](https://github.com/abluenautilus/ProteusDaisyPatchInit) | Proteus generative sequencer (native C++ port) | Unknown |
+| Experosynth | [remixed123/Experosynth](https://github.com/remixed123/Experosynth) | Experimental synth with triple VCO and gate outs | Unknown |
 
 ---
 
