@@ -299,7 +299,7 @@ Index: [Maxhodges/noise-engineering-firmware-index](https://github.com/Maxhodges
 
 | Project | URL | Description | Hardware | License |
 |---------|-----|-------------|----------|---------|
-| DaisySeedProjects (GuitarML) | [GuitarML/DaisySeedProjects](https://github.com/GuitarML/DaisySeedProjects) | Fork adding neural amp modeling | Seed | MIT |
+| DaisySeedProjects (GuitarML) | [GuitarML/DaisySeedProjects](https://github.com/GuitarML/DaisySeedProjects) | Fork adding neural amp modeling (archived) | Seed | MIT |
 | PedalBoi | [elijah-rou/PedalBoi](https://github.com/elijah-rou/PedalBoi) | Fully programmable guitar pedal | Seed | Unknown |
 | PENDA | [DADDesign-Projects/PENDA-Software](https://github.com/DADDesign-Projects/PENDA-Software) | Stompbox platform with TFT display | Seed | Unknown |
 | PENDAII | [DADDesign-Projects/PENDAII-Software](https://github.com/DADDesign-Projects/PENDAII-Software) | 2nd gen effects pedal platform | Seed | Unknown |
