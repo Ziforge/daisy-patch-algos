@@ -309,18 +309,6 @@
       "release_asset": "auto"
     },
     {
-      "name": "Botrytis",
-      "repo": "https://github.com/johnnyhoffman/botrytis",
-      "description": "MIDI mono synth with FM, effects, assignable I/O",
-      "category": "synthesizer",
-      "hardware": [
-        "patch"
-      ],
-      "license": "unknown",
-      "build_dir": ".",
-      "build_system": "needs-update"
-    },
-    {
       "name": "FunBox",
       "repo": "https://github.com/GuitarML/FunBox",
       "description": "10 planetary-themed stereo guitar effects",
@@ -629,18 +617,6 @@
       "build_system": "make"
     },
     {
-      "name": "dat-ting",
-      "repo": "https://github.com/Len42/dat-ting",
-      "description": "10HP multi-function Eurorack: VCO, delay, more",
-      "category": "multi_effect",
-      "hardware": [
-        "seed"
-      ],
-      "license": "MIT",
-      "build_dir": "firmware/src",
-      "build_system": "needs-update"
-    },
-    {
       "name": "Loewenzahnhonig",
       "repo": "https://github.com/wgd-modular/loewenzahnhonig-firmware",
       "description": "Multi-firmware Eurorack module collection",
@@ -651,18 +627,6 @@
       "license": "unknown",
       "build_dir": ".",
       "build_system": "arduino"
-    },
-    {
-      "name": "Veno-Echo",
-      "repo": "https://github.com/AdamFulford/Veno-Echo",
-      "description": "Stereo digital delay Eurorack module",
-      "category": "delay",
-      "hardware": [
-        "seed"
-      ],
-      "license": "unknown",
-      "build_dir": "Veno-Echo",
-      "build_system": "needs-update"
     },
     {
       "name": "BassMate",
@@ -735,18 +699,6 @@
       "license": "unknown",
       "build_dir": ".",
       "build_system": "make"
-    },
-    {
-      "name": "Flora",
-      "repo": "https://github.com/blackboxaudio/flora",
-      "description": "Lotus (binaural osc), Kudzu (distortion), Lily (binaural) for patch.Init()",
-      "category": "synthesizer",
-      "hardware": [
-        "patch_init"
-      ],
-      "license": "unknown",
-      "build_dir": "patches/init/kudzu",
-      "build_system": "needs-update"
     },
     {
       "name": "GlitchPedal",
@@ -975,18 +927,6 @@
       "build_system": "make"
     },
     {
-      "name": "Dream",
-      "repo": "https://github.com/eyebrain/Dream",
-      "description": "Advanced granular synthesizer for Daisy Patch",
-      "category": "granular",
-      "hardware": [
-        "patch"
-      ],
-      "license": "unknown",
-      "build_dir": ".",
-      "build_system": "needs-update"
-    },
-    {
       "name": "Grainwaves",
       "repo": "https://github.com/TurpinL/Grainwaves",
       "description": "GR-1 inspired granular synth for Patch SM",
@@ -1203,18 +1143,6 @@
       "build_system": "make"
     },
     {
-      "name": "nam-pedal",
-      "repo": "https://github.com/tone-3000/nam-pedal",
-      "description": "NeuralAmpModeler demo on Daisy Seed",
-      "category": "amp_modeling",
-      "hardware": [
-        "seed"
-      ],
-      "license": "unknown",
-      "build_dir": ".",
-      "build_system": "needs-update"
-    },
-    {
       "name": "Weasel",
       "repo": "https://github.com/joebmz98/Weasel-West-Coast-Synthesiser",
       "description": "West coast synth inspired by Buchla Easel",
@@ -1225,18 +1153,6 @@
       "license": "unknown",
       "build_dir": "src/WEASEL_FW",
       "build_system": "arduino"
-    },
-    {
-      "name": "daisy-midside",
-      "repo": "https://github.com/h2g2guy/daisy-midside",
-      "description": "Mid/side stereo processor for Daisy Patch",
-      "category": "utility",
-      "hardware": [
-        "patch"
-      ],
-      "license": "unknown",
-      "build_dir": ".",
-      "build_system": "needs-update"
     },
     {
       "name": "DaisyPatches-ndonald2",
@@ -1428,19 +1344,6 @@
       "build_dir": ".",
       "build_system": "make",
       "pre_build": "sed -i 's|#include \\\"dsp.h\\\"|#include \\\"Utility/dsp.h\\\"|' BlockSawOsc.cpp"
-    },
-    {
-      "name": "song-naga-2cats1bag",
-      "repo": "https://github.com/wendallsan/song-naga-2cats1bag",
-      "description": "Buchla 259-inspired complex oscillator with wavefolder",
-      "category": "synthesizer",
-      "hardware": [
-        "seed"
-      ],
-      "license": "MIT",
-      "build_dir": ".",
-      "build_system": "needs-update",
-      "pre_build": null
     },
     {
       "name": "audrey-daisy",

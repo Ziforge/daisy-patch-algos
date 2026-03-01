@@ -22,7 +22,7 @@ This repository exists **for learning and education purposes only** — to help 
 
 ## Build Status
 
-**75+ of 130 projects produce firmware** (built from source or downloaded from author releases). Automated pre-build patches handle DaisySP V1.0.0 API changes (MoogLadder/ReverbSc moved to LGPL, LadderFilter rename, audio callback const, GPIO struct API). 7 projects need manual porting and are marked **"needs update"**. Some projects use non-standard build systems (CMake, Cargo/Rust, STM32CubeIDE, Arduino) and are cataloged but not yet integrated.
+**122 firmware binaries** produced from 122 projects (75 built from source + 47 downloaded from author releases). Automated pre-build patches handle DaisySP V1.0.0 API changes (MoogLadder/ReverbSc moved to LGPL, LadderFilter rename, audio callback const, GPIO struct API). Some projects use non-standard build systems (CMake, Cargo/Rust, STM32CubeIDE, Arduino) and are cataloged but not yet integrated.
 
 **PRs welcome** for the remaining projects. See the [build logs](../../actions) for specific errors.
 
@@ -136,7 +136,6 @@ Source: [electro-smith/DaisyExamples](https://github.com/electro-smith/DaisyExam
 | Saturn (FunBox) | [GuitarML/FunBox](https://github.com/GuitarML/FunBox) | Spectral delay via STFT | FunBox | MIT |
 | TapeoVersio | [onoma2/TapeoVersio](https://github.com/onoma2/TapeoVersio) | Tape delay + fuzz + envelope follower *(needs update)* | Versio | Unknown |
 | ReticulumVersio | [ModWiggler](https://modwiggler.com/forum/viewtopic.php?t=280196) | Asynchronous delay/looper (Steve Reich style) | Versio | Unknown |
-| Veno-Echo | [AdamFulford/Veno-Echo](https://github.com/AdamFulford/Veno-Echo) | Stereo digital delay Eurorack module *(needs update)* | Seed | Unknown |
 | terrarium-tapedelay | [michaeldonovan/terrarium-tapedelay](https://github.com/michaeldonovan/terrarium-tapedelay) | CHOWTape hysteresis tape delay | Terrarium | Unknown |
 | daisy-sdram-delaylines | [Farmer2K5/daisy-sdram-delaylines](https://github.com/Farmer2K5/daisy-sdram-delaylines) | SDRAM-backed delay line classes | Seed | Unknown |
 | DaisySTFT | [amcerbu/DaisySTFT](https://github.com/amcerbu/DaisySTFT) | Short-time Fourier transform example | Seed | Unknown |
@@ -159,7 +158,6 @@ Source: [electro-smith/DaisyExamples](https://github.com/electro-smith/DaisyExam
 | Dualie | [danielkinahan/dualie](https://github.com/danielkinahan/dualie) | 12-voice poly: dual osc, Moog ladder, LFO, FX *(needs update)* | Seed | Unknown |
 | 7-Voice VA | [Nettech15/Daisy-Seed-7-Voice-VA-Synthesizer](https://github.com/Nettech15/Daisy-Seed-7-Voice-VA-Synthesizer) | 7-voice VA, dual osc, 4-pole LPF, USB-MIDI *(needs update)* | Seed | Unknown |
 | 8-Voice VA | [funkbungus/Daisy-Seed-8-Voice-VA-Synthesizer](https://github.com/funkbungus/Daisy-Seed-8-Voice-VA-Synthesizer) | 8-voice fork with improved MIDI/ADSR *(needs update)* | Seed | Unknown |
-| Botrytis | [johnnyhoffman/botrytis](https://github.com/johnnyhoffman/botrytis) | MIDI mono synth with FM, assignable I/O *(needs update)* | Patch | Unknown |
 | daisy_polysynth | [jcampbellcodes/daisy_polysynth](https://github.com/jcampbellcodes/daisy_polysynth) | Simple poly synth + Costello reverb | Seed | Unknown |
 | podsynth | [charlieb/podsynth](https://github.com/charlieb/podsynth) | 6-voice poly synth with MIDI | Pod | Unknown |
 | My-Dirty-Synth | [lucblender/My-Dirty-Synth](https://github.com/lucblender/My-Dirty-Synth) | East-coast synth: decimator + wavefolder | Seed | Unknown |
@@ -176,7 +174,6 @@ Source: [electro-smith/DaisyExamples](https://github.com/electro-smith/DaisyExam
 | vasvas | [stone-voices/vasvas](https://github.com/stone-voices/vasvas) | Noisebox with FX processor | Seed | Unknown |
 | Phosphorescent | [sunchimes/phosphorescent](https://github.com/sunchimes/phosphorescent) | Shimmery arpeggiator | Seed | Unknown |
 | Takshaka | [wendallsan/song-naga-takshaka](https://github.com/wendallsan/song-naga-takshaka) | Supersaw synthesizer | Seed | Unknown |
-| 2cats1bag | [wendallsan/song-naga-2cats1bag](https://github.com/wendallsan/song-naga-2cats1bag) | Complex oscillator | Seed | Unknown |
 | SynthMachine | [ConnorGiles00101/SynthMachine](https://github.com/ConnorGiles00101/SynthMachine) | Modular synth: SSI2130 VCO + SSI2140 filter + Daisy | Seed | Unknown |
 | OmniSeed | [wolfpunk25/OmniSeed](https://github.com/wolfpunk25/OmniSeed) | Omnichord for Daisy Pod (WIP) | Pod | Unknown |
 | OscPocket VA | [moonfriendsynth/OscPocket-VA-Daisy-Pod](https://github.com/moonfriendsynth/OscPocket-VA-Daisy-Pod) | OscPocket VA pocket synth | Pod | Unknown |
@@ -217,7 +214,6 @@ Source: [electro-smith/DaisyExamples](https://github.com/electro-smith/DaisyExam
 | Daisy_Gran | [holographica/Daisy_Gran](https://github.com/holographica/Daisy_Gran) | Granular synthesizer *(needs update)* | Pod | Unknown |
 | Sitira | [backtail/sitira-embedded-daisy](https://github.com/backtail/sitira-embedded-daisy) | 34HP Eurorack granular, Rust, 2.2" screen | Seed | Unknown |
 | Uranus (FunBox) | [GuitarML/FunBox](https://github.com/GuitarML/FunBox) | Granular delay + FM synth | FunBox | MIT |
-| Dream | [eyebrain/Dream](https://github.com/eyebrain/Dream) | Advanced granular synth *(needs update)* | Patch | Unknown |
 | Grainwaves | [TurpinL/Grainwaves](https://github.com/TurpinL/Grainwaves) | GR-1 inspired granular synth *(needs update)* | Patch SM | Unknown |
 | STR500 | [yannseznec/STR500-stringSampler](https://github.com/yannseznec/STR500-stringSampler) | Granular string sampler | Seed | Unknown |
 | GranularDaisyPod | [matildarosevin/GranularDaisyPod](https://github.com/matildarosevin/GranularDaisyPod) | Real-time granular synthesis | Pod | Unknown |
@@ -258,7 +254,6 @@ Source: [electro-smith/DaisyExamples](https://github.com/electro-smith/DaisyExam
 
 | Project | URL | Description | Hardware | License |
 |---------|-----|-------------|----------|---------|
-| Kudzu (Flora) | [blackboxaudio/flora](https://github.com/blackboxaudio/flora) | Expressive distortion/wavefolder | Patch.Init() | Unknown |
 | lx-deciim | [lucblender/lx-deciim](https://github.com/lucblender/lx-deciim) | Dual-channel bitcrusher Eurorack *(needs update)* | Seed | Unknown |
 | terrarium-bitcrusher | [rocketmax/terrarium-bitcrusher](https://github.com/rocketmax/terrarium-bitcrusher) | Bitcrush effect for Terrarium *(needs update)* | Terrarium | Unknown |
 
@@ -275,7 +270,6 @@ Source: [electro-smith/DaisyExamples](https://github.com/electro-smith/DaisyExam
 | MultiVersio | [fluffyaudio/MultiVersio](https://github.com/fluffyaudio/MultiVersio) | 7 switchable effects for NE Versio *(needs update)* | Versio | Unknown |
 | DaisyEffects | [GuitarML/DaisyEffects](https://github.com/GuitarML/DaisyEffects) | Individual DaisySP effects for Terrarium *(needs update)* | Terrarium | MIT |
 | DaisyFxPlatform | [omar-karray.github.io](https://omar-karray.github.io/DaisyFxPlatform/) | 4-block FX module: MANGLE/SCULPT/DIFFUSE/REDUCE | Seed | Unknown |
-| dat ting | [Len42/dat-ting](https://github.com/Len42/dat-ting) | 10HP multi-function: VCO, delay, more *(needs update)* | Seed | MIT |
 | Daisy_Guitar_Pedal | [jerry20091103/Daisy_Guitar_Pedal](https://github.com/jerry20091103/Daisy_Guitar_Pedal) | Multi-FX: analog OD + IR amp sim, 10 presets | Seed | Unknown |
 | HothouseExamples | [clevelandmusicco/HothouseExamples](https://github.com/clevelandmusicco/HothouseExamples) | Effects for Hothouse pedal kit | Hothouse | MIT |
 | GlitchPedal | [willbearfruits/GlitchPedal](https://github.com/willbearfruits/GlitchPedal) | 8 real-time effects with 1024-pt FFT *(needs update)* | Seed | Unknown |
@@ -292,7 +286,6 @@ Source: [electro-smith/DaisyExamples](https://github.com/electro-smith/DaisyExam
 |---------|-----|-------------|----------|---------|
 | NeuralSeed | [GuitarML/NeuralSeed](https://github.com/GuitarML/NeuralSeed) | GRU neural amp/pedal emulation, trainable models | Terrarium | MIT |
 | Mercury | [GuitarML/Mercury](https://github.com/GuitarML/Mercury) | Neural Amp Modeler (NAM) engine | FunBox | MIT |
-| nam-pedal | [tone-3000/nam-pedal](https://github.com/tone-3000/nam-pedal) | NeuralAmpModeler demo on Daisy Seed *(needs update)* | Seed | Unknown |
 
 ---
 
@@ -304,7 +297,6 @@ Source: [electro-smith/DaisyExamples](https://github.com/electro-smith/DaisyExam
 | DaisyDrone (ThomArmax) | [ThomArmax/DaisyDrone](https://github.com/ThomArmax/DaisyDrone) | Basic drone synth | Seed | Unknown |
 | Dryftor | [MrBlueXav/Dryftor](https://github.com/MrBlueXav/Dryftor) | 8 drifting polyblep saws + delay/phaser/chorus | Pod | Unknown |
 | Daikrispator | [MrBlueXav/Daikrispator](https://github.com/MrBlueXav/Daikrispator) | Autonomous experimental music synth | Pod | Unknown |
-| Lotus (Flora) | [blackboxaudio/flora](https://github.com/blackboxaudio/flora) | Binaural meditation oscillator | Patch.Init() | Unknown |
 | Audrey II | [FedeRepic/audrey-daisy](https://github.com/FedeRepic/audrey-daisy) | Droning horroscape (Karplus-Strong) | Seed | Unknown |
 | Stocharythm-box | [MrBlueXav/Stocharythm-box](https://github.com/MrBlueXav/Stocharythm-box) | Strange generative drum machine | Seed | Unknown |
 
@@ -379,7 +371,6 @@ Index: [Maxhodges/noise-engineering-firmware-index](https://github.com/Maxhodges
 | Skipmin | [nnirror/daisy_patches](https://github.com/nnirror/daisy_patches) | CV gate skipper (Max/gen~) | Patch | Unknown |
 | Clock Modulator | [nnirror/daisy_patches](https://github.com/nnirror/daisy_patches) | 4-channel clock divider with CV | Patch | Unknown |
 | Simple_Daisy_Oscilloscope | [kreiff/Simple_Daisy_Oscilloscope](https://github.com/kreiff/Simple_Daisy_Oscilloscope) | Rudimentary oscilloscope | Seed | Unknown |
-| daisy-midside | [h2g2guy/daisy-midside](https://github.com/h2g2guy/daisy-midside) | Mid/side stereo processor *(needs update)* | Patch | Unknown |
 | Midi2CV | [alexiszbik/Midi2CVModule](https://github.com/alexiszbik/Midi2CVModule) | MIDI to CV converter | Patch SM | Unknown |
 | OscillatorModule | [alexiszbik/OscillatorModule](https://github.com/alexiszbik/OscillatorModule) | Oscillator module | Patch SM | Unknown |
 | chnl | [olicarter/chnl](https://github.com/olicarter/chnl) | Eurorack channel strip | Patch SM | Unknown |
@@ -421,7 +412,6 @@ Index: [Maxhodges/noise-engineering-firmware-index](https://github.com/Maxhodges
 | kxmx_bluemchen | [recursinging/kxmx_bluemchen](https://github.com/recursinging/kxmx_bluemchen) | Open-source 4HP DSP module | MIT (SW) / CC-BY-NC-SA (HW) |
 | eurorack-blocks | [ohmtech-rdi/eurorack-blocks](https://github.com/ohmtech-rdi/eurorack-blocks) | Software-to-hardware framework (C++/Max/Faust) | MIT |
 | Loewenzahnhonig | [wgd-modular/loewenzahnhonig-firmware](https://github.com/wgd-modular/loewenzahnhonig-firmware) | Multi-firmware Eurorack module *(needs update)* | Unknown |
-| Veno-Echo | [AdamFulford/Veno-Echo](https://github.com/AdamFulford/Veno-Echo) | Stereo delay Eurorack module | Unknown |
 | simple_canvas | [lucblender/simple_canvas](https://github.com/lucblender/simple_canvas) | Buchla Easel-inspired west coast synth *(needs update)* | Unknown |
 | gritwave eurorack | [gritwave/eurorack](https://github.com/gritwave/eurorack) | 5-module suite: amp sim, FX, dynamics, wavetable, noise (bins available) | MIT |
 | Rawyaw Media | [rawyawmedia/eurorack](https://github.com/rawyawmedia/eurorack) | Dizygote, Monolith, Torus modules (firmware bins only) | Unknown |
@@ -434,7 +424,6 @@ Index: [Maxhodges/noise-engineering-firmware-index](https://github.com/Maxhodges
 |---------|-----|-------------|---------|
 | PatchInit_Collection | [benjiaomodular/PatchInit_Collection](https://github.com/benjiaomodular/PatchInit_Collection) | DaisyDuino examples: oscillator, kick, pluck, strings | Unknown |
 | Working patches (hvcc) | [edition1304/working-patches-for-patch.Init-hvcc-](https://github.com/edition1304/working-patches-for-patch.Init-hvcc-) | PureData patches compiled via hvcc | Unknown |
-| Flora (blackboxaudio) | [blackboxaudio/flora](https://github.com/blackboxaudio/flora) | Lotus, Kudzu, Lily instruments *(needs update)* | Unknown |
 | ProteusDaisyPatchInit | [abluenautilus/ProteusDaisyPatchInit](https://github.com/abluenautilus/ProteusDaisyPatchInit) | Proteus generative sequencer (native C++ port) | Unknown |
 | Experosynth | [remixed123/Experosynth](https://github.com/remixed123/Experosynth) | Experimental synth with triple VCO and gate outs | Unknown |
 
