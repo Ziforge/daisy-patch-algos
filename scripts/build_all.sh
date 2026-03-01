@@ -121,18 +121,25 @@ build_project() {
 
     log "Building ${name}..."
 
-    # Clone if needed
+    # Clone if needed (without submodules — we provide our own libDaisy/DaisySP)
     if [ ! -d "$src_dir" ]; then
-        git clone --recurse-submodules --depth 1 "$repo" "$src_dir" 2>/dev/null || {
+        git clone --depth 1 "$repo" "$src_dir" 2>/dev/null || {
             fail "Failed to clone ${repo}"
             return 1
         }
     fi
 
-    # Init submodules if they exist but weren't cloned
+    # Init non-library submodules (skip libDaisy/DaisySP since we provide our own)
     if [ -f "${src_dir}/.gitmodules" ]; then
         cd "$src_dir"
-        git submodule update --init --recursive 2>/dev/null || true
+        local submodules
+        submodules=$(git config --file .gitmodules --get-regexp 'submodule\..*\.path' 2>/dev/null | awk '{print $2}' || true)
+        for sub in $submodules; do
+            case "$sub" in
+                libDaisy|DaisySP|libdaisy|daisysp) ;;  # skip — we provide these
+                *) git submodule update --init --recursive -- "$sub" 2>/dev/null || true ;;
+            esac
+        done
         cd "$ROOT_DIR"
     fi
 
@@ -144,18 +151,23 @@ build_project() {
         return 1
     fi
 
-    cd "$full_build_dir"
+    # Force-replace any libDaisy/DaisySP dirs (including submodule checkouts) with symlinks
+    for link_dir in "$src_dir" "$full_build_dir"; do
+        [ ! -d "$link_dir" ] && continue
+        for lib_name in libDaisy DaisySP libdaisy; do
+            local target="${SOURCES_ROOT}/libDaisy"
+            [ "$lib_name" = "DaisySP" ] && target="${SOURCES_ROOT}/DaisySP"
+            if [ -L "${link_dir}/${lib_name}" ]; then
+                continue  # already a symlink
+            fi
+            if [ -d "${link_dir}/${lib_name}" ]; then
+                rm -rf "${link_dir}/${lib_name}"  # remove submodule checkout
+            fi
+            ln -sf "$target" "${link_dir}/${lib_name}" 2>/dev/null || true
+        done
+    done
 
-    # Symlink libDaisy and DaisySP if the project expects them locally
-    if [ ! -d "libDaisy" ] && [ ! -L "libDaisy" ]; then
-        ln -sf "${SOURCES_ROOT}/libDaisy" libDaisy 2>/dev/null || true
-    fi
-    if [ ! -d "DaisySP" ] && [ ! -L "DaisySP" ]; then
-        ln -sf "${SOURCES_ROOT}/DaisySP" DaisySP 2>/dev/null || true
-    fi
-    if [ ! -d "libdaisy" ] && [ ! -L "libdaisy" ]; then
-        ln -sf "${SOURCES_ROOT}/libDaisy" libdaisy 2>/dev/null || true
-    fi
+    cd "$full_build_dir"
 
     # Run pre-build command if specified
     if [ -n "$pre_build" ] && [ "$pre_build" != "null" ]; then
