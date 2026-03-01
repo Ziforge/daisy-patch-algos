@@ -2,7 +2,12 @@
 set -euo pipefail
 
 # Build all Daisy Patch firmware projects from projects.json
-# Requires: arm-none-eabi-gcc, jq, git
+# Requires: arm-none-eabi-gcc, jq, git, gh (GitHub CLI)
+#
+# Supports three acquisition modes per project:
+#   1. "release" — download pre-built .bin from GitHub releases
+#   2. "make"    — clone and build with arm-none-eabi-gcc
+#   3. "arduino" — skip (requires Arduino CLI, not automated)
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT_DIR="$(dirname "$SCRIPT_DIR")"
@@ -20,11 +25,13 @@ mkdir -p "$BUILD_ROOT" "$SOURCES_ROOT" "$OUTPUT_DIR"
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
+CYAN='\033[0;36m'
 NC='\033[0m'
 
-log() { echo -e "${GREEN}[BUILD]${NC} $*"; }
+log()  { echo -e "${GREEN}[BUILD]${NC} $*"; }
 warn() { echo -e "${YELLOW}[WARN]${NC} $*"; }
 fail() { echo -e "${RED}[FAIL]${NC} $*"; }
+info() { echo -e "${CYAN}[INFO]${NC} $*"; }
 
 # Clone or update libDaisy and DaisySP
 setup_libs() {
@@ -49,25 +56,84 @@ setup_libs() {
     cd "$ROOT_DIR"
 }
 
-# Build a single project
+# Download pre-built .bin from GitHub releases
+download_release_bin() {
+    local name="$1"
+    local repo="$2"
+    local release_asset="$3"  # specific asset name, or "auto" to grab first .bin
+
+    local owner_repo
+    owner_repo=$(echo "$repo" | sed 's|https://github.com/||' | sed 's|\.git$||')
+
+    info "Downloading release binary for ${name} from ${owner_repo}..."
+
+    if [ "$release_asset" = "auto" ]; then
+        # Get the latest release and find .bin assets
+        local asset_url
+        asset_url=$(gh release view -R "$owner_repo" --json assets \
+            --jq '[.assets[] | select(.name | endswith(".bin"))][0].url' 2>/dev/null) || {
+            fail "No releases found for ${owner_repo}"
+            return 1
+        }
+
+        if [ -z "$asset_url" ] || [ "$asset_url" = "null" ]; then
+            fail "No .bin assets in latest release of ${owner_repo}"
+            return 1
+        fi
+
+        gh release download -R "$owner_repo" --pattern "*.bin" -D "${OUTPUT_DIR}" --clobber 2>/dev/null || {
+            fail "Failed to download release bins from ${owner_repo}"
+            return 1
+        }
+
+        # Rename to standardized name if only one bin
+        local bin_count
+        bin_count=$(find "${OUTPUT_DIR}" -maxdepth 1 -name "*.bin" -newer "$MANIFEST" 2>/dev/null | wc -l)
+        if [ "$bin_count" -eq 1 ]; then
+            local downloaded
+            downloaded=$(find "${OUTPUT_DIR}" -maxdepth 1 -name "*.bin" -newer "$MANIFEST" 2>/dev/null | head -1)
+            if [ "$(basename "$downloaded")" != "${name}.bin" ]; then
+                mv "$downloaded" "${OUTPUT_DIR}/${name}.bin"
+            fi
+        fi
+    else
+        # Download specific asset
+        gh release download -R "$owner_repo" --pattern "$release_asset" -D "${OUTPUT_DIR}" --clobber 2>/dev/null || {
+            fail "Failed to download ${release_asset} from ${owner_repo}"
+            return 1
+        }
+    fi
+
+    log "Downloaded release bin for ${name}"
+    return 0
+}
+
+# Build a single project from source
 build_project() {
     local name="$1"
     local repo="$2"
     local build_dir="$3"
     local build_system="$4"
+    local pre_build="$5"
+    local make_target="$6"
 
-    local repo_name
-    repo_name=$(echo "$repo" | sed 's|.*/||' | sed 's|\.git$||')
     local src_dir="${SOURCES_ROOT}/${name}"
 
     log "Building ${name}..."
 
     # Clone if needed
     if [ ! -d "$src_dir" ]; then
-        git clone --recurse-submodules "$repo" "$src_dir" 2>/dev/null || {
+        git clone --recurse-submodules --depth 1 "$repo" "$src_dir" 2>/dev/null || {
             fail "Failed to clone ${repo}"
             return 1
         }
+    fi
+
+    # Init submodules if they exist but weren't cloned
+    if [ -f "${src_dir}/.gitmodules" ]; then
+        cd "$src_dir"
+        git submodule update --init --recursive 2>/dev/null || true
+        cd "$ROOT_DIR"
     fi
 
     local full_build_dir="${src_dir}/${build_dir}"
@@ -80,21 +146,43 @@ build_project() {
 
     cd "$full_build_dir"
 
+    # Symlink libDaisy and DaisySP if the project expects them locally
+    if [ ! -d "libDaisy" ] && [ ! -L "libDaisy" ]; then
+        ln -sf "${SOURCES_ROOT}/libDaisy" libDaisy 2>/dev/null || true
+    fi
+    if [ ! -d "DaisySP" ] && [ ! -L "DaisySP" ]; then
+        ln -sf "${SOURCES_ROOT}/DaisySP" DaisySP 2>/dev/null || true
+    fi
+    if [ ! -d "libdaisy" ] && [ ! -L "libdaisy" ]; then
+        ln -sf "${SOURCES_ROOT}/libDaisy" libdaisy 2>/dev/null || true
+    fi
+
+    # Run pre-build command if specified
+    if [ -n "$pre_build" ] && [ "$pre_build" != "null" ]; then
+        info "Running pre-build: ${pre_build}"
+        eval "$pre_build" 2>/dev/null || true
+    fi
+
     case "$build_system" in
         make)
-            # Try to build, setting DAISYSP and LIBDAISY paths
-            if make -j"$(nproc)" \
-                DAISYSP_DIR="${SOURCES_ROOT}/DaisySP" \
-                LIBDAISY_DIR="${SOURCES_ROOT}/libDaisy" \
-                2>"${OUTPUT_DIR}/${name}.log"; then
+            local make_args=(
+                -j"$(nproc)"
+                "DAISYSP_DIR=${SOURCES_ROOT}/DaisySP"
+                "LIBDAISY_DIR=${SOURCES_ROOT}/libDaisy"
+                "SYSTEM_FILES_DIR=${SOURCES_ROOT}/libDaisy/core"
+            )
 
+            if [ -n "$make_target" ] && [ "$make_target" != "null" ]; then
+                make_args+=("$make_target")
+            fi
+
+            if make "${make_args[@]}" 2>"${OUTPUT_DIR}/${name}.build.log"; then
                 # Find the .bin file
                 local bin_file
-                bin_file=$(find "$full_build_dir" -maxdepth 2 -name "*.bin" -newer "$MANIFEST" 2>/dev/null | head -1)
+                bin_file=$(find "$full_build_dir" -maxdepth 3 -name "*.bin" -newer "$MANIFEST" 2>/dev/null | head -1)
 
                 if [ -z "$bin_file" ]; then
-                    # Try any .bin file
-                    bin_file=$(find "$full_build_dir" -maxdepth 2 -name "*.bin" 2>/dev/null | head -1)
+                    bin_file=$(find "$full_build_dir" -maxdepth 3 -name "*.bin" 2>/dev/null | head -1)
                 fi
 
                 if [ -n "$bin_file" ]; then
@@ -106,7 +194,7 @@ build_project() {
                     return 1
                 fi
             else
-                fail "Build failed for ${name} (see ${OUTPUT_DIR}/${name}.log)"
+                fail "Build failed for ${name} (see ${OUTPUT_DIR}/${name}.build.log)"
                 return 1
             fi
             ;;
@@ -128,6 +216,7 @@ main() {
     local success=0
     local failed=0
     local skipped=0
+    local downloaded=0
 
     # Check prerequisites
     if ! command -v arm-none-eabi-gcc &>/dev/null; then
@@ -145,11 +234,14 @@ main() {
     project_count=$(jq '.projects | length' "$MANIFEST")
 
     for i in $(seq 0 $((project_count - 1))); do
-        local name repo build_dir build_system
+        local name repo build_dir build_system release_asset pre_build make_target
         name=$(jq -r ".projects[$i].name" "$MANIFEST")
         repo=$(jq -r ".projects[$i].repo" "$MANIFEST")
         build_dir=$(jq -r ".projects[$i].build_dir" "$MANIFEST")
         build_system=$(jq -r ".projects[$i].build_system" "$MANIFEST")
+        release_asset=$(jq -r ".projects[$i].release_asset // empty" "$MANIFEST")
+        pre_build=$(jq -r ".projects[$i].pre_build // empty" "$MANIFEST")
+        make_target=$(jq -r ".projects[$i].make_target // empty" "$MANIFEST")
 
         # Filter if specified
         if [ -n "$filter" ] && [ "$name" != "$filter" ]; then
@@ -158,21 +250,41 @@ main() {
 
         total=$((total + 1))
 
-        if build_project "$name" "$repo" "$build_dir" "$build_system"; then
+        # Skip if output already exists
+        if [ -f "${OUTPUT_DIR}/${name}.bin" ]; then
+            info "Already have ${name}.bin, skipping"
+            success=$((success + 1))
+            continue
+        fi
+
+        # Try release download first if configured
+        if [ -n "$release_asset" ]; then
+            if download_release_bin "$name" "$repo" "$release_asset"; then
+                downloaded=$((downloaded + 1))
+                success=$((success + 1))
+                continue
+            fi
+            warn "Release download failed for ${name}, falling back to build..."
+        fi
+
+        # Build from source
+        if build_project "$name" "$repo" "$build_dir" "$build_system" "$pre_build" "$make_target"; then
             success=$((success + 1))
         else
             failed=$((failed + 1))
         fi
+
+        cd "$ROOT_DIR"
     done
 
     echo ""
     log "========================================="
     log "Build Summary"
     log "========================================="
-    log "Total:   ${total}"
-    log "Success: ${success}"
-    fail "Failed:  ${failed}"
-    log "Output:  ${OUTPUT_DIR}/"
+    log "Total:      ${total}"
+    log "Success:    ${success} (${downloaded} from releases)"
+    fail "Failed:     ${failed}"
+    log "Output dir: ${OUTPUT_DIR}/"
     log "========================================="
 }
 

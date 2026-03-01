@@ -59,95 +59,11 @@ jobs:
           make -j$(nproc) || true
 
       - name: Build all projects
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          mkdir -p output build_logs
-          PROJECT_COUNT=$(jq '.projects | length' projects.json)
-          SUCCESS=0
-          FAILED=0
-          FAILED_LIST=""
-
-          for i in $(seq 0 $((PROJECT_COUNT - 1))); do
-            NAME=$(jq -r ".projects[$i].name" projects.json)
-            REPO=$(jq -r ".projects[$i].repo" projects.json)
-            BUILD_DIR=$(jq -r ".projects[$i].build_dir" projects.json)
-            BUILD_SYS=$(jq -r ".projects[$i].build_system" projects.json)
-
-            echo "::group::Building ${NAME}"
-
-            if [ "$BUILD_SYS" != "make" ]; then
-              echo "Skipping ${NAME} (build system: ${BUILD_SYS})"
-              echo "::endgroup::"
-              continue
-            fi
-
-            # Clone
-            SRC_DIR="sources/${NAME}"
-            if [ ! -d "$SRC_DIR" ]; then
-              git clone --recurse-submodules --depth 1 "$REPO" "$SRC_DIR" 2>/dev/null || {
-                echo "::warning::Failed to clone ${REPO}"
-                FAILED=$((FAILED + 1))
-                FAILED_LIST="${FAILED_LIST}\n  - ${NAME} (clone failed)"
-                echo "::endgroup::"
-                continue
-              }
-            fi
-
-            FULL_DIR="$SRC_DIR"
-            [ "$BUILD_DIR" != "." ] && FULL_DIR="${SRC_DIR}/${BUILD_DIR}"
-
-            if [ ! -d "$FULL_DIR" ]; then
-              echo "::warning::Build dir not found: ${FULL_DIR}"
-              FAILED=$((FAILED + 1))
-              FAILED_LIST="${FAILED_LIST}\n  - ${NAME} (build dir missing)"
-              echo "::endgroup::"
-              continue
-            fi
-
-            cd "$FULL_DIR"
-            if make -j$(nproc) \
-              DAISYSP_DIR="${GITHUB_WORKSPACE}/sources/DaisySP" \
-              LIBDAISY_DIR="${GITHUB_WORKSPACE}/sources/libDaisy" \
-              2>&1 | tee "${GITHUB_WORKSPACE}/build_logs/${NAME}.log"; then
-
-              BIN=$(find . -maxdepth 2 -name "*.bin" 2>/dev/null | head -1)
-              if [ -n "$BIN" ]; then
-                cp "$BIN" "${GITHUB_WORKSPACE}/output/${NAME}.bin"
-                echo "Built ${NAME} successfully"
-                SUCCESS=$((SUCCESS + 1))
-              else
-                echo "::warning::Build succeeded but no .bin for ${NAME}"
-                FAILED=$((FAILED + 1))
-                FAILED_LIST="${FAILED_LIST}\n  - ${NAME} (no .bin output)"
-              fi
-            else
-              echo "::warning::Build failed for ${NAME}"
-              FAILED=$((FAILED + 1))
-              FAILED_LIST="${FAILED_LIST}\n  - ${NAME} (build error)"
-            fi
-            cd "${GITHUB_WORKSPACE}"
-            echo "::endgroup::"
-          done
-
-          echo ""
-          echo "======================================="
-          echo "Build Summary"
-          echo "======================================="
-          echo "Success: ${SUCCESS}"
-          echo "Failed:  ${FAILED}"
-          if [ -n "$FAILED_LIST" ]; then
-            echo -e "Failed projects:${FAILED_LIST}"
-          fi
-          echo "======================================="
-
-          # Create build report
-          cat > output/BUILD_REPORT.md << EOF
-          # Build Report
-          - Date: $(date -u +"%Y-%m-%d %H:%M UTC")
-          - libDaisy: ${LIBDAISY_VERSION}
-          - DaisySP: ${DAISYSP_VERSION}
-          - Success: ${SUCCESS}
-          - Failed: ${FAILED}
-          EOF
+          chmod +x scripts/build_all.sh
+          scripts/build_all.sh
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4

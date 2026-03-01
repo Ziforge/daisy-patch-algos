@@ -211,7 +211,8 @@
       "hardware": ["patch"],
       "license": "MIT",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "DaisyCloudSeed-Terrarium",
@@ -221,7 +222,8 @@
       "hardware": ["seed", "terrarium"],
       "license": "MIT",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "Resonate",
@@ -251,7 +253,8 @@
       "hardware": ["patch"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "Botrytis",
@@ -271,7 +274,8 @@
       "hardware": ["seed", "funbox"],
       "license": "MIT",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "NeuralSeed",
@@ -281,7 +285,8 @@
       "hardware": ["seed", "terrarium"],
       "license": "MIT",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "Mercury",
@@ -291,7 +296,8 @@
       "hardware": ["seed", "funbox"],
       "license": "MIT",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "GuitarML-Seed",
@@ -301,7 +307,8 @@
       "hardware": ["seed", "terrarium"],
       "license": "MIT",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "IronPedal",
@@ -311,7 +318,8 @@
       "hardware": ["seed", "terrarium"],
       "license": "MIT",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "DaisySeedProjects",
@@ -321,7 +329,8 @@
       "hardware": ["seed"],
       "license": "MIT",
       "build_dir": "Software/GuitarPedal",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "*.zip"
     },
     {
       "name": "DaisyEffects",
@@ -341,7 +350,8 @@
       "hardware": ["seed", "hothouse"],
       "license": "MIT",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "Dualie",
@@ -441,7 +451,8 @@
       "hardware": ["versio"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "CRCLTR",
@@ -451,7 +462,8 @@
       "hardware": ["versio"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "TapeoVersio",
@@ -491,7 +503,8 @@
       "hardware": ["versio"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "ProteusVersio",
@@ -681,7 +694,8 @@
       "hardware": ["seed"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "daisy-projects-EvansUniverse",
@@ -721,7 +735,8 @@
       "hardware": ["patch"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "Ubersaw",
@@ -811,7 +826,8 @@
       "hardware": ["seed", "funbox"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "Flick",
@@ -831,7 +847,8 @@
       "hardware": ["seed"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "acid-swarm",
@@ -861,7 +878,8 @@
       "hardware": ["patch"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "DaisyKlon",
@@ -891,7 +909,8 @@
       "hardware": ["seed", "terrarium"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "terrarium-pitch-shifter",
@@ -911,7 +930,8 @@
       "hardware": ["seed", "terrarium"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "Ethereal",
@@ -1001,7 +1021,8 @@
       "hardware": ["patch"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "release_asset": "auto"
     },
     {
       "name": "Droplets",
