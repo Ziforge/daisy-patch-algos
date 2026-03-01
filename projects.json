@@ -712,6 +712,306 @@
       "license": "MIT",
       "build_dir": ".",
       "build_system": "make"
+    },
+    {
+      "name": "Mutables_Daisies",
+      "repo": "https://github.com/CyberDuck79/Mutables_Daisies",
+      "description": "Mutable Instruments ports collection for Daisy Eurorack",
+      "category": "mutable_ports",
+      "hardware": ["patch"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Ubersaw",
+      "repo": "https://github.com/house-of-houses/ubersaw",
+      "description": "Roland JP-8000 supersaw recreation for patch.Init()",
+      "category": "synthesizer",
+      "hardware": ["patch_init"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Corrode",
+      "repo": "https://github.com/house-of-houses/corrode",
+      "description": "TB-303 acid synth voice for patch.Init()",
+      "category": "synthesizer",
+      "hardware": ["patch_init"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyX7",
+      "repo": "https://github.com/jacobvosmaer/DaisyX7",
+      "description": "DX7 synthesis for Daisy Field and patch.Init()",
+      "category": "fm_synthesis",
+      "hardware": ["field", "patch_init"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "CZengine",
+      "repo": "https://github.com/jacobvosmaer/CZengine",
+      "description": "Casio CZ phase distortion synthesis on Daisy Pod",
+      "category": "synthesizer",
+      "hardware": ["pod"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "PolyAnalog",
+      "repo": "https://github.com/alexiszbik/polyanalog",
+      "description": "4-voice polyphonic VA synth",
+      "category": "synthesizer",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "PolyFM",
+      "repo": "https://github.com/alexiszbik/polyfm",
+      "description": "FM synth for Daisy Seed",
+      "category": "fm_synthesis",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Dream",
+      "repo": "https://github.com/eyebrain/Dream",
+      "description": "Advanced granular synthesizer for Daisy Patch",
+      "category": "granular",
+      "hardware": ["patch"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Grainwaves",
+      "repo": "https://github.com/TurpinL/Grainwaves",
+      "description": "GR-1 inspired granular synth for Patch SM",
+      "category": "granular",
+      "hardware": ["patch_sm"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Earth",
+      "repo": "https://github.com/GuitarML/Earth",
+      "description": "Plate reverb and octave effect for FunBox",
+      "category": "reverb",
+      "hardware": ["seed", "funbox"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Flick",
+      "repo": "https://github.com/joulupukki/Flick",
+      "description": "Reverb/tremolo/delay for FunBox and Hothouse",
+      "category": "multi_effect",
+      "hardware": ["seed", "funbox", "hothouse"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "KarplusStrongMachine",
+      "repo": "https://github.com/willbearfruits/KarplusStrongMachine",
+      "description": "Digital kalimba with WebUSB flasher",
+      "category": "physical_modeling",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "acid-swarm",
+      "repo": "https://github.com/Fyde0/acid-swarm",
+      "description": "Saw swarm mono synth with acid filter for Daisy Field",
+      "category": "synthesizer",
+      "hardware": ["field"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisySphere",
+      "repo": "https://github.com/tfroehlich82/DaisySphere",
+      "description": "Hemisphere-style multi-applet framework for Daisy Patch",
+      "category": "multi_effect",
+      "hardware": ["patch"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Olearia",
+      "repo": "https://github.com/CarlColglazier/Olearia",
+      "description": "Modular applets for Daisy Patch",
+      "category": "multi_effect",
+      "hardware": ["patch"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyKlon",
+      "repo": "https://github.com/jaffco/DaisyKlon",
+      "description": "Klon Centaur overdrive emulation",
+      "category": "distortion",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Griesinger-Reverb",
+      "repo": "https://github.com/AMslHub/Daisy_Griesinger_Reverb",
+      "description": "Lexicon-style Griesinger reverb",
+      "category": "reverb",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "terrarium-reverb",
+      "repo": "https://github.com/fxwiegand/terrarium-reverb",
+      "description": "Reverb for Terrarium",
+      "category": "reverb",
+      "hardware": ["seed", "terrarium"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "terrarium-pitch-shifter",
+      "repo": "https://github.com/fxwiegand/terrarium-pitch-shifter",
+      "description": "Pitch shifter for Terrarium",
+      "category": "pitch",
+      "hardware": ["seed", "terrarium"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "terrarium-ladder-filter",
+      "repo": "https://github.com/fxwiegand/terrarium-ladder-filter",
+      "description": "Ladder filter for Terrarium",
+      "category": "filter",
+      "hardware": ["seed", "terrarium"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Ethereal",
+      "repo": "https://github.com/rljonesiii/ethereal",
+      "description": "Zero-latency multi-scale guitar harmonizer",
+      "category": "pitch",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyRotary",
+      "repo": "https://github.com/pianomanfrazier/DaisyRotary",
+      "description": "Leslie rotary speaker emulation",
+      "category": "effects",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "sammy",
+      "repo": "https://github.com/ulmert/sammy",
+      "description": "Software Automatic Mouth (SAM) speech synthesis for Daisy Patch",
+      "category": "speech",
+      "hardware": ["patch"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "murmurator",
+      "repo": "https://github.com/lewis1286/murmurator",
+      "description": "Granular synthesis controlled by boids/flocking algorithm",
+      "category": "granular",
+      "hardware": ["patch"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "daisy-hachikit",
+      "repo": "https://github.com/perkowitz/daisy-hachikit",
+      "description": "Virtual modular drum kit for Daisy Patch",
+      "category": "drums",
+      "hardware": ["patch"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "nam-pedal",
+      "repo": "https://github.com/tone-3000/nam-pedal",
+      "description": "NeuralAmpModeler demo on Daisy Seed",
+      "category": "amp_modeling",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Weasel",
+      "repo": "https://github.com/joebmz98/Weasel-West-Coast-Synthesiser",
+      "description": "West coast synth inspired by Buchla Easel",
+      "category": "synthesizer",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "daisy-midside",
+      "repo": "https://github.com/h2g2guy/daisy-midside",
+      "description": "Mid/side stereo processor for Daisy Patch",
+      "category": "utility",
+      "hardware": ["patch"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyPatches-ndonald2",
+      "repo": "https://github.com/ndonald2/DaisyPatches",
+      "description": "Multiple DSP patches including IntervalOsc",
+      "category": "oscillator",
+      "hardware": ["patch"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Droplets",
+      "repo": "https://github.com/AquaMorph/Droplets",
+      "description": "Multi-program framework for Daisy Patch",
+      "category": "multi_effect",
+      "hardware": ["patch"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
     }
   ]
 }
