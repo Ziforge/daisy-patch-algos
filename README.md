@@ -22,7 +22,7 @@ This repository exists **for learning and education purposes only** — to help 
 
 ## Build Status
 
-**~76 of 130 buildable projects produce firmware** (built from source or downloaded from author releases). Automated pre-build patches handle DaisySP V1.0.0 API changes (MoogLadder/ReverbSc moved to LGPL, LadderFilter rename, audio callback const, GPIO struct API). 7 projects need manual porting and are marked **"needs update"**. Some projects use non-standard build systems (CMake, Cargo/Rust, STM32CubeIDE, Arduino) and are cataloged but not yet integrated.
+**75+ of 130 projects produce firmware** (built from source or downloaded from author releases). Automated pre-build patches handle DaisySP V1.0.0 API changes (MoogLadder/ReverbSc moved to LGPL, LadderFilter rename, audio callback const, GPIO struct API). 7 projects need manual porting and are marked **"needs update"**. Some projects use non-standard build systems (CMake, Cargo/Rust, STM32CubeIDE, Arduino) and are cataloged but not yet integrated.
 
 **PRs welcome** for the remaining projects. See the [build logs](../../actions) for specific errors.
 
