@@ -1033,6 +1033,17 @@
       "license": "unknown",
       "build_dir": ".",
       "build_system": "make"
+    },
+    {
+      "name": "TimeMachine",
+      "repo": "https://github.com/oamodular/time-machine",
+      "description": "OAM Time Machine looper/recorder for Eurorack",
+      "category": "looper",
+      "hardware": ["seed"],
+      "license": "Other",
+      "build_dir": ".",
+      "build_system": "make",
+      "release_asset": "auto"
     }
   ]
 }
