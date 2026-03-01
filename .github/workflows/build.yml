@@ -1,0 +1,202 @@
+name: Build All Daisy Firmware
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'projects.json'
+      - 'scripts/**'
+      - '.github/workflows/build.yml'
+  workflow_dispatch:
+  schedule:
+    # Rebuild monthly to catch upstream updates
+    - cron: '0 6 1 * *'
+
+env:
+  LIBDAISY_VERSION: v7.0.1
+  DAISYSP_VERSION: v1.0.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install ARM toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-arm-none-eabi libnewlib-arm-none-eabi jq
+
+      - name: Cache libDaisy and DaisySP
+        uses: actions/cache@v4
+        with:
+          path: |
+            sources/libDaisy
+            sources/DaisySP
+          key: daisy-libs-${{ env.LIBDAISY_VERSION }}-${{ env.DAISYSP_VERSION }}
+
+      - name: Setup libDaisy
+        run: |
+          if [ ! -d sources/libDaisy ]; then
+            git clone https://github.com/electro-smith/libDaisy.git sources/libDaisy
+          fi
+          cd sources/libDaisy
+          git fetch --tags
+          git checkout "$LIBDAISY_VERSION" 2>/dev/null || git checkout "tags/${LIBDAISY_VERSION}"
+          make -j$(nproc) || true
+
+      - name: Setup DaisySP
+        run: |
+          if [ ! -d sources/DaisySP ]; then
+            git clone https://github.com/electro-smith/DaisySP.git sources/DaisySP
+          fi
+          cd sources/DaisySP
+          git fetch --tags
+          git checkout "$DAISYSP_VERSION" 2>/dev/null || git checkout "tags/${DAISYSP_VERSION}"
+          make -j$(nproc) || true
+
+      - name: Build all projects
+        run: |
+          mkdir -p output build_logs
+          PROJECT_COUNT=$(jq '.projects | length' projects.json)
+          SUCCESS=0
+          FAILED=0
+          FAILED_LIST=""
+
+          for i in $(seq 0 $((PROJECT_COUNT - 1))); do
+            NAME=$(jq -r ".projects[$i].name" projects.json)
+            REPO=$(jq -r ".projects[$i].repo" projects.json)
+            BUILD_DIR=$(jq -r ".projects[$i].build_dir" projects.json)
+            BUILD_SYS=$(jq -r ".projects[$i].build_system" projects.json)
+
+            echo "::group::Building ${NAME}"
+
+            if [ "$BUILD_SYS" != "make" ]; then
+              echo "Skipping ${NAME} (build system: ${BUILD_SYS})"
+              echo "::endgroup::"
+              continue
+            fi
+
+            # Clone
+            SRC_DIR="sources/${NAME}"
+            if [ ! -d "$SRC_DIR" ]; then
+              git clone --recurse-submodules --depth 1 "$REPO" "$SRC_DIR" 2>/dev/null || {
+                echo "::warning::Failed to clone ${REPO}"
+                FAILED=$((FAILED + 1))
+                FAILED_LIST="${FAILED_LIST}\n  - ${NAME} (clone failed)"
+                echo "::endgroup::"
+                continue
+              }
+            fi
+
+            FULL_DIR="$SRC_DIR"
+            [ "$BUILD_DIR" != "." ] && FULL_DIR="${SRC_DIR}/${BUILD_DIR}"
+
+            if [ ! -d "$FULL_DIR" ]; then
+              echo "::warning::Build dir not found: ${FULL_DIR}"
+              FAILED=$((FAILED + 1))
+              FAILED_LIST="${FAILED_LIST}\n  - ${NAME} (build dir missing)"
+              echo "::endgroup::"
+              continue
+            fi
+
+            cd "$FULL_DIR"
+            if make -j$(nproc) \
+              DAISYSP_DIR="${GITHUB_WORKSPACE}/sources/DaisySP" \
+              LIBDAISY_DIR="${GITHUB_WORKSPACE}/sources/libDaisy" \
+              2>&1 | tee "${GITHUB_WORKSPACE}/build_logs/${NAME}.log"; then
+
+              BIN=$(find . -maxdepth 2 -name "*.bin" 2>/dev/null | head -1)
+              if [ -n "$BIN" ]; then
+                cp "$BIN" "${GITHUB_WORKSPACE}/output/${NAME}.bin"
+                echo "Built ${NAME} successfully"
+                SUCCESS=$((SUCCESS + 1))
+              else
+                echo "::warning::Build succeeded but no .bin for ${NAME}"
+                FAILED=$((FAILED + 1))
+                FAILED_LIST="${FAILED_LIST}\n  - ${NAME} (no .bin output)"
+              fi
+            else
+              echo "::warning::Build failed for ${NAME}"
+              FAILED=$((FAILED + 1))
+              FAILED_LIST="${FAILED_LIST}\n  - ${NAME} (build error)"
+            fi
+            cd "${GITHUB_WORKSPACE}"
+            echo "::endgroup::"
+          done
+
+          echo ""
+          echo "======================================="
+          echo "Build Summary"
+          echo "======================================="
+          echo "Success: ${SUCCESS}"
+          echo "Failed:  ${FAILED}"
+          if [ -n "$FAILED_LIST" ]; then
+            echo -e "Failed projects:${FAILED_LIST}"
+          fi
+          echo "======================================="
+
+          # Create build report
+          cat > output/BUILD_REPORT.md << EOF
+          # Build Report
+          - Date: $(date -u +"%Y-%m-%d %H:%M UTC")
+          - libDaisy: ${LIBDAISY_VERSION}
+          - DaisySP: ${DAISYSP_VERSION}
+          - Success: ${SUCCESS}
+          - Failed: ${FAILED}
+          EOF
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: daisy-firmware-bins
+          path: output/*.bin
+          retention-days: 90
+
+      - name: Upload build logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-logs
+          path: build_logs/
+          retention-days: 30
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name != 'schedule'
+
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: daisy-firmware-bins
+          path: bins/
+
+      - name: Count binaries
+        id: count
+        run: |
+          BIN_COUNT=$(ls bins/*.bin 2>/dev/null | wc -l)
+          echo "count=${BIN_COUNT}" >> "$GITHUB_OUTPUT"
+          echo "Found ${BIN_COUNT} firmware binaries"
+
+      - name: Create Release
+        if: steps.count.outputs.count > 0
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: "Firmware Build #${{ github.run_number }}"
+          body: |
+            Automated firmware build from projects.json.
+
+            **libDaisy**: ${{ env.LIBDAISY_VERSION }}
+            **DaisySP**: ${{ env.DAISYSP_VERSION }}
+            **Binaries**: ${{ steps.count.outputs.count }}
+
+            Flash any `.bin` file using the [Daisy Web Programmer](https://electro-smith.github.io/Programmer/).
+          files: bins/*.bin
+          draft: false
+          prerelease: false

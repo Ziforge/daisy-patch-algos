@@ -1,0 +1,9 @@
+sources/
+build/
+output/
+*.bin
+*.elf
+*.hex
+*.o
+*.d
+*.map

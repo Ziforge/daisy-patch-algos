@@ -1,0 +1,39 @@
+MIT License
+
+Copyright (c) 2026
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+IMPORTANT NOTICE:
+
+This MIT license applies ONLY to the original files authored in this repository:
+the catalog text (README.md), build scripts (scripts/), CI configuration
+(.github/), and project manifest (projects.json).
+
+This license does NOT apply to any of the individual firmware projects cataloged
+or built by this repository. Each firmware project retains its own license as
+set by its original author(s). Users must check and comply with the original
+project's license (linked in README.md and projects.json) before any use,
+modification, or redistribution of that project's code or binaries.
+
+This repository is maintained for educational and learning purposes. If you are
+the author or rights holder of any cataloged project and wish to have it removed,
+please open a GitHub issue or contact us directly and it will be removed promptly.

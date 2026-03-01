@@ -1,0 +1,717 @@
+{
+  "_comment": "Daisy Patch Algo Collection - Project Manifest",
+  "_libdaisy_version": "v7.0.1",
+  "_daisysp_version": "v1.0.0",
+  "projects": [
+    {
+      "name": "DaisyExamples-Patch-Compressor",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Dynamic range compressor",
+      "category": "dynamics",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/Compressor",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-EnvelopeOscillator",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Envelope-controlled oscillator",
+      "category": "oscillator",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/EnvelopeOscillator",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-FilterBank",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Multi-band filter bank",
+      "category": "filter",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/FilterBank",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-MultiDelay",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Multi-tap delay effect",
+      "category": "delay",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/MultiDelay",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-Nimbus",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Port of Mutable Instruments Clouds granular processor",
+      "category": "granular",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/Nimbus",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-Noise",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Noise generator",
+      "category": "oscillator",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/Noise",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-PluckEcho",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Polyphonic Karplus-Strong pluck with 10s SDRAM delay + reverb",
+      "category": "physical_modeling",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/PluckEcho",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-PolyOsc",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Polyphonic oscillator",
+      "category": "oscillator",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/PolyOsc",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-QuadEnvelope",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Quad envelope generator",
+      "category": "modulation",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/QuadEnvelope",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-QuadMixer",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "4-channel mixer",
+      "category": "mixer",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/QuadMixer",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-QuadraphonicMixer",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "4-channel quadraphonic mixer",
+      "category": "mixer",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/QuadraphonicMixer",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-SampleAndHold",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Sample and hold module",
+      "category": "utility",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/SampleAndHold",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-Sequencer",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Step sequencer",
+      "category": "sequencer",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/Sequencer",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-SequentialSwitch",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Sequential switch for routing",
+      "category": "utility",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/SequentialSwitch",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-Svf",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "State variable filter (LP/HP/BP)",
+      "category": "filter",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/Svf",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-Torus",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Port of Mutable Instruments Rings resonator",
+      "category": "physical_modeling",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/Torus",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-lfo",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Low-frequency oscillator",
+      "category": "modulation",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/lfo",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-logic",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Logic operations on signals",
+      "category": "utility",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/logic",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-vco",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Voltage-controlled oscillator",
+      "category": "oscillator",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/vco",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyExamples-Patch-verb",
+      "repo": "https://github.com/electro-smith/DaisyExamples",
+      "description": "Reverb effect",
+      "category": "reverb",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": "patch/verb",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyCloudSeed",
+      "repo": "https://github.com/erwincoumans/DaisyCloudSeed",
+      "description": "CloudSeed algorithmic reverb + DaisyGranular + Sample Player (DaisyBouquet)",
+      "category": "reverb",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyCloudSeed-Terrarium",
+      "repo": "https://github.com/GuitarML/DaisyCloudSeed",
+      "description": "CloudSeed ambient reverb for Terrarium guitar pedal",
+      "category": "reverb",
+      "hardware": ["seed", "terrarium"],
+      "license": "MIT",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Resonate",
+      "repo": "https://github.com/tylerreckart/resonate",
+      "description": "Enhanced Mutable Instruments Rings port",
+      "category": "physical_modeling",
+      "hardware": ["patch"],
+      "license": "MIT",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "AlgoDaisy-TorusPlus",
+      "repo": "https://github.com/algoritmarte/algodaisy",
+      "description": "Enhanced MI Rings with delay + random rhythm/note generator",
+      "category": "physical_modeling",
+      "hardware": ["patch"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "AdditiveVoice",
+      "repo": "https://github.com/stablum/AdditiveVoice",
+      "description": "Additive synthesis voice inspired by XAOC Odessa",
+      "category": "additive",
+      "hardware": ["patch"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Botrytis",
+      "repo": "https://github.com/johnnyhoffman/botrytis",
+      "description": "MIDI mono synth with FM, effects, assignable I/O",
+      "category": "synthesizer",
+      "hardware": ["patch"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "FunBox",
+      "repo": "https://github.com/GuitarML/FunBox",
+      "description": "10 planetary-themed stereo guitar effects",
+      "category": "multi_effect",
+      "hardware": ["seed", "funbox"],
+      "license": "MIT",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "NeuralSeed",
+      "repo": "https://github.com/GuitarML/NeuralSeed",
+      "description": "Neural network amp/pedal emulation (GRU + RTNeural)",
+      "category": "amp_modeling",
+      "hardware": ["seed", "terrarium"],
+      "license": "MIT",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Mercury",
+      "repo": "https://github.com/GuitarML/Mercury",
+      "description": "Neural Amp Modeler (NAM) engine",
+      "category": "amp_modeling",
+      "hardware": ["seed", "funbox"],
+      "license": "MIT",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "GuitarML-Seed",
+      "repo": "https://github.com/GuitarML/Seed",
+      "description": "Multi-effect: neural amp models + reverb + delay + tremolo + looper",
+      "category": "multi_effect",
+      "hardware": ["seed", "terrarium"],
+      "license": "MIT",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "IronPedal",
+      "repo": "https://github.com/snail23/ironpedal",
+      "description": "16 effects: OD, chorus, comp, reverb, autowah, tremolo, looper, etc.",
+      "category": "multi_effect",
+      "hardware": ["seed", "terrarium"],
+      "license": "MIT",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisySeedProjects",
+      "repo": "https://github.com/bkshepherd/DaisySeedProjects",
+      "description": "Guitar pedal platform: tremolo, chorus, OD, pitch shift, comp, EQ",
+      "category": "multi_effect",
+      "hardware": ["seed"],
+      "license": "MIT",
+      "build_dir": "Software/GuitarPedal",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyEffects",
+      "repo": "https://github.com/GuitarML/DaisyEffects",
+      "description": "Individual DaisySP effects for Terrarium testing",
+      "category": "multi_effect",
+      "hardware": ["seed", "terrarium"],
+      "license": "MIT",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "HothouseExamples",
+      "repo": "https://github.com/clevelandmusicco/HothouseExamples",
+      "description": "Effects for Cleveland Music Co. Hothouse pedal kit",
+      "category": "multi_effect",
+      "hardware": ["seed", "hothouse"],
+      "license": "MIT",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Dualie",
+      "repo": "https://github.com/danielkinahan/dualie",
+      "description": "12-voice polyphonic synth: dual osc, Moog ladder, LFO, FX",
+      "category": "synthesizer",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "7-Voice-VA-Synth",
+      "repo": "https://github.com/Nettech15/Daisy-Seed-7-Voice-VA-Synthesizer",
+      "description": "7-voice VA synth with dual osc, 4-pole LPF, USB-MIDI",
+      "category": "synthesizer",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "8-Voice-VA-Synth",
+      "repo": "https://github.com/funkbungus/Daisy-Seed-8-Voice-VA-Synthesizer",
+      "description": "8-voice VA synth fork with improved MIDI/ADSR",
+      "category": "synthesizer",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Helical",
+      "repo": "https://github.com/SdkcInstruments/Helical",
+      "description": "16-voice autoregressive algorithmic wavetable synth",
+      "category": "synthesizer",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Dryftor",
+      "repo": "https://github.com/MrBlueXav/Dryftor",
+      "description": "Drone machine: 8 drifting polyblep saws + delay/phaser/chorus",
+      "category": "drone",
+      "hardware": ["pod"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Daikrispator",
+      "repo": "https://github.com/MrBlueXav/Daikrispator",
+      "description": "Autonomous experimental music synth (Dekrispator port)",
+      "category": "drone",
+      "hardware": ["pod"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyDrone",
+      "repo": "https://github.com/cutlasses/DaisyDrone",
+      "description": "Drone synth: 18 sine waves + 3-way wavefolding",
+      "category": "drone",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyMultiLooper",
+      "repo": "https://github.com/colinlove/DaisyMultiLooper",
+      "description": "Multi-channel synchronized looper",
+      "category": "looper",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Wreath",
+      "repo": "https://github.com/hirnlego/wreath",
+      "description": "Multifaceted looper (Mimeophon/Softcut inspired)",
+      "category": "looper",
+      "hardware": ["seed", "bluemchen"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "RepetitaVersio",
+      "repo": "https://github.com/hirnlego/repetita-versio",
+      "description": "Multifaceted looper for NE Versio (Wreath engine)",
+      "category": "looper",
+      "hardware": ["versio"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "CRCLTR",
+      "repo": "https://github.com/s3g/crcltr",
+      "description": "Stereo looper for NE Versio, crossfade/ducking modes",
+      "category": "looper",
+      "hardware": ["versio"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "TapeoVersio",
+      "repo": "https://github.com/onoma2/TapeoVersio",
+      "description": "Distorted tape echo + fuzz + envelope follower",
+      "category": "delay",
+      "hardware": ["versio"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "TriwalkmaVersio",
+      "repo": "https://github.com/onoma2/TriwalkmaVersio",
+      "description": "Three independent parallel loopers",
+      "category": "looper",
+      "hardware": ["versio"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "MultiVersio",
+      "repo": "https://github.com/fluffyaudio/MultiVersio",
+      "description": "7 switchable effects for NE Versio",
+      "category": "multi_effect",
+      "hardware": ["versio"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "AcidusVersio",
+      "repo": "https://github.com/abluenautilus/AcidusVersio",
+      "description": "TB-303 emulator synth voice",
+      "category": "synthesizer",
+      "hardware": ["versio"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "ProteusVersio",
+      "repo": "https://github.com/abluenautilus/ProteusVersio",
+      "description": "Generative melodic sequencer",
+      "category": "sequencer",
+      "hardware": ["versio"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "dat-ting",
+      "repo": "https://github.com/Len42/dat-ting",
+      "description": "10HP multi-function Eurorack: VCO, delay, more",
+      "category": "multi_effect",
+      "hardware": ["seed"],
+      "license": "MIT",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Loewenzahnhonig",
+      "repo": "https://github.com/wgd-modular/loewenzahnhonig-firmware",
+      "description": "Multi-firmware Eurorack module collection",
+      "category": "multi_effect",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Veno-Echo",
+      "repo": "https://github.com/AdamFulford/Veno-Echo",
+      "description": "Stereo digital delay Eurorack module",
+      "category": "delay",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "BassMate",
+      "repo": "https://github.com/ukmaker/BassMate",
+      "description": "4-channel drum machine for rhythm backing",
+      "category": "drums",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "My-Dirty-Synth",
+      "repo": "https://github.com/lucblender/My-Dirty-Synth",
+      "description": "East-coast synth: decimator + wavefolder, MIDI",
+      "category": "synthesizer",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "arduino"
+    },
+    {
+      "name": "lx-deciim",
+      "repo": "https://github.com/lucblender/lx-deciim",
+      "description": "Dual-channel bitcrusher Eurorack module",
+      "category": "distortion",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "simple_canvas",
+      "repo": "https://github.com/lucblender/simple_canvas",
+      "description": "Buchla Easel-inspired west coast patchable synth",
+      "category": "synthesizer",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "lx-euclid-001",
+      "repo": "https://github.com/lucblender/lx-euclid-001",
+      "description": "Euclidean rhythm generator module",
+      "category": "sequencer",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Ouroboros",
+      "repo": "https://github.com/kooliha/Ouroboros_Loop_Station",
+      "description": "5-track looper, no menu diving",
+      "category": "looper",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Flora",
+      "repo": "https://github.com/blackboxaudio/flora",
+      "description": "Lotus (binaural osc), Kudzu (distortion), Lily (binaural) for patch.Init()",
+      "category": "synthesizer",
+      "hardware": ["patch_init"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "GlitchPedal",
+      "repo": "https://github.com/willbearfruits/GlitchPedal",
+      "description": "8 real-time effects with 1024-point FFT spectral processing",
+      "category": "multi_effect",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Daisy-Harmoniqs",
+      "repo": "https://github.com/Krakenpine/Daisy-Harmoniqs",
+      "description": "6-10 voice additive harmonics synth (8 harmonics each)",
+      "category": "additive",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "DaisyVerb",
+      "repo": "https://github.com/adion12/DaisyVerb",
+      "description": "Collection of reverb algorithms",
+      "category": "reverb",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "daisy-reverb",
+      "repo": "https://github.com/baylessj/daisy-reverb",
+      "description": "CloudSeed fork with expanded controls for Terrarium",
+      "category": "reverb",
+      "hardware": ["seed", "terrarium"],
+      "license": "MIT",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "terrarium-tapedelay",
+      "repo": "https://github.com/michaeldonovan/terrarium-tapedelay",
+      "description": "CHOWTape hysteresis tape delay emulation",
+      "category": "delay",
+      "hardware": ["seed", "terrarium"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "terrarium-bitcrusher",
+      "repo": "https://github.com/rocketmax/terrarium-bitcrusher",
+      "description": "Bitcrush effect for Terrarium",
+      "category": "distortion",
+      "hardware": ["seed", "terrarium"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Daisy_Gran",
+      "repo": "https://github.com/holographica/Daisy_Gran",
+      "description": "Granular synthesizer",
+      "category": "granular",
+      "hardware": ["pod"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "Blossom",
+      "repo": "https://github.com/abluenautilus/Blossom",
+      "description": "Alternative firmware for Qu-Bit Bloom sequencer",
+      "category": "sequencer",
+      "hardware": ["seed"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "daisy-projects-EvansUniverse",
+      "repo": "https://github.com/EvansUniverse/daisy-projects",
+      "description": "Musubi (osc processor), Jellybeans (arpeggiator), Omakase (mixer)",
+      "category": "utility",
+      "hardware": ["patch"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "make"
+    },
+    {
+      "name": "PatchInit_Collection",
+      "repo": "https://github.com/benjiaomodular/PatchInit_Collection",
+      "description": "DaisyDuino examples: oscillator, kick, pluck, strings",
+      "category": "synthesizer",
+      "hardware": ["patch_init"],
+      "license": "unknown",
+      "build_dir": ".",
+      "build_system": "arduino"
+    },
+    {
+      "name": "daisy-reverb-playground",
+      "repo": "https://github.com/Farmer2K5/daisy-reverb-playground",
+      "description": "Modular experimental reverb building blocks",
+      "category": "reverb",
+      "hardware": ["seed"],
+      "license": "MIT",
+      "build_dir": ".",
+      "build_system": "make"
+    }
+  ]
+}
