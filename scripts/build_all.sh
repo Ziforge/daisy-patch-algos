@@ -212,8 +212,8 @@ build_project() {
                 return 1
             fi
             ;;
-        arduino)
-            warn "Skipping Arduino project ${name} (requires Arduino CLI)"
+        arduino|platformio|micropython|gen~|none|cmake|cargo|stm32cubeide)
+            warn "Skipping ${name} (requires ${build_system})"
             return 1
             ;;
         *)

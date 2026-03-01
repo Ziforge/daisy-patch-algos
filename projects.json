@@ -242,7 +242,7 @@
       "category": "physical_modeling",
       "hardware": ["patch"],
       "license": "unknown",
-      "build_dir": ".",
+      "build_dir": "patch_algodaisy/TorusPlus",
       "build_system": "make"
     },
     {
@@ -339,7 +339,7 @@
       "category": "multi_effect",
       "hardware": ["seed", "terrarium"],
       "license": "MIT",
-      "build_dir": ".",
+      "build_dir": "src/reverb",
       "build_system": "make"
     },
     {
@@ -391,7 +391,7 @@
       "hardware": ["seed"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "none"
     },
     {
       "name": "Dryftor",
@@ -431,7 +431,7 @@
       "hardware": ["seed"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "arduino"
     },
     {
       "name": "Wreath",
@@ -471,9 +471,9 @@
       "description": "Distorted tape echo + fuzz + envelope follower",
       "category": "delay",
       "hardware": ["versio"],
-      "license": "unknown",
+      "license": "GPL-3.0",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "gen~"
     },
     {
       "name": "TriwalkmaVersio",
@@ -481,9 +481,9 @@
       "description": "Three independent parallel loopers",
       "category": "looper",
       "hardware": ["versio"],
-      "license": "unknown",
+      "license": "GPL-3.0",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "gen~"
     },
     {
       "name": "MultiVersio",
@@ -523,7 +523,7 @@
       "category": "multi_effect",
       "hardware": ["seed"],
       "license": "MIT",
-      "build_dir": ".",
+      "build_dir": "firmware/src",
       "build_system": "make"
     },
     {
@@ -534,7 +534,7 @@
       "hardware": ["seed"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "arduino"
     },
     {
       "name": "Veno-Echo",
@@ -543,7 +543,7 @@
       "category": "delay",
       "hardware": ["seed"],
       "license": "unknown",
-      "build_dir": ".",
+      "build_dir": "Veno-Echo",
       "build_system": "make"
     },
     {
@@ -554,7 +554,7 @@
       "hardware": ["seed"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "platformio"
     },
     {
       "name": "My-Dirty-Synth",
@@ -573,7 +573,7 @@
       "category": "distortion",
       "hardware": ["seed"],
       "license": "unknown",
-      "build_dir": ".",
+      "build_dir": "Software/lx-deciim-libdaisy",
       "build_system": "make"
     },
     {
@@ -583,8 +583,8 @@
       "category": "synthesizer",
       "hardware": ["seed"],
       "license": "unknown",
-      "build_dir": ".",
-      "build_system": "make"
+      "build_dir": "software/simple_canvas",
+      "build_system": "arduino"
     },
     {
       "name": "lx-euclid-001",
@@ -594,7 +594,7 @@
       "hardware": ["seed"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "micropython"
     },
     {
       "name": "Ouroboros",
@@ -613,7 +613,7 @@
       "category": "synthesizer",
       "hardware": ["patch_init"],
       "license": "unknown",
-      "build_dir": ".",
+      "build_dir": "patches/init/kudzu",
       "build_system": "make"
     },
     {
@@ -644,7 +644,7 @@
       "hardware": ["seed"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "none"
     },
     {
       "name": "daisy-reverb",
@@ -653,7 +653,7 @@
       "category": "reverb",
       "hardware": ["seed", "terrarium"],
       "license": "MIT",
-      "build_dir": ".",
+      "build_dir": "src",
       "build_system": "make"
     },
     {
@@ -673,7 +673,7 @@
       "category": "distortion",
       "hardware": ["seed", "terrarium"],
       "license": "unknown",
-      "build_dir": ".",
+      "build_dir": "your_pedal",
       "build_system": "make"
     },
     {
@@ -704,7 +704,7 @@
       "category": "utility",
       "hardware": ["patch"],
       "license": "unknown",
-      "build_dir": ".",
+      "build_dir": "patch/Musubi",
       "build_system": "make"
     },
     {
@@ -765,7 +765,7 @@
       "category": "fm_synthesis",
       "hardware": ["field", "patch_init"],
       "license": "unknown",
-      "build_dir": ".",
+      "build_dir": "field",
       "build_system": "make"
     },
     {
@@ -836,7 +836,7 @@
       "category": "multi_effect",
       "hardware": ["seed", "funbox", "hothouse"],
       "license": "unknown",
-      "build_dir": ".",
+      "build_dir": "src",
       "build_system": "make"
     },
     {
@@ -868,7 +868,7 @@
       "hardware": ["patch"],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "cmake"
     },
     {
       "name": "Olearia",
@@ -919,7 +919,7 @@
       "category": "pitch",
       "hardware": ["seed", "terrarium"],
       "license": "unknown",
-      "build_dir": ".",
+      "build_dir": "pitch_shifter",
       "build_system": "make"
     },
     {
@@ -970,7 +970,7 @@
       "category": "granular",
       "hardware": ["patch"],
       "license": "unknown",
-      "build_dir": ".",
+      "build_dir": "murmur",
       "build_system": "make"
     },
     {
@@ -980,7 +980,7 @@
       "category": "drums",
       "hardware": ["patch"],
       "license": "unknown",
-      "build_dir": ".",
+      "build_dir": "source/HachiKit",
       "build_system": "make"
     },
     {
@@ -1000,8 +1000,8 @@
       "category": "synthesizer",
       "hardware": ["seed"],
       "license": "unknown",
-      "build_dir": ".",
-      "build_system": "make"
+      "build_dir": "src/WEASEL_FW",
+      "build_system": "arduino"
     },
     {
       "name": "daisy-midside",
@@ -1041,7 +1041,7 @@
       "category": "looper",
       "hardware": ["seed"],
       "license": "Other",
-      "build_dir": ".",
+      "build_dir": "TimeMachine",
       "build_system": "make",
       "release_asset": "auto"
     },
