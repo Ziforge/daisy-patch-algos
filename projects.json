@@ -835,7 +835,7 @@
       "license": "unknown",
       "build_dir": ".",
       "build_system": "make",
-      "pre_build": "sed -i \"s/BOOT_SRAM_EDITED/BOOT_SRAM/\" src/Makefile && echo \"CPPFLAGS += -Wno-error=sign-compare\" >> src/Makefile"
+      "pre_build": "sed -i \"s/BOOT_SRAM_EDITED/BOOT_SRAM/\" src/Makefile && sed -i \"s/reverb_\\.SetMix([^)]*);//g;s/reverb_\\.ProcessMix/reverb_.Process/g\" src/GrannyChordApp.cpp && echo \"CPPFLAGS += -Wno-error=sign-compare\" >> src/Makefile"
     },
     {
       "name": "Blossom",
