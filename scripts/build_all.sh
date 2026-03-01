@@ -43,7 +43,8 @@ setup_libs() {
     cd "${SOURCES_ROOT}/libDaisy"
     git fetch --tags
     git checkout "$LIBDAISY_VERSION" 2>/dev/null || git checkout "tags/${LIBDAISY_VERSION}"
-    make -j"$(nproc)" 2>/dev/null || true
+    git submodule update --init --recursive
+    make -j"$(nproc)"
     cd "$ROOT_DIR"
 
     if [ ! -d "${SOURCES_ROOT}/DaisySP" ]; then
@@ -52,7 +53,8 @@ setup_libs() {
     cd "${SOURCES_ROOT}/DaisySP"
     git fetch --tags
     git checkout "$DAISYSP_VERSION" 2>/dev/null || git checkout "tags/${DAISYSP_VERSION}"
-    make -j"$(nproc)" 2>/dev/null || true
+    git submodule update --init --recursive
+    make -j"$(nproc)"
     cd "$ROOT_DIR"
 }
 
