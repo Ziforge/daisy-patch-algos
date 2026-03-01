@@ -22,9 +22,9 @@ This repository exists **for learning and education purposes only** — to help 
 
 ## Build Status
 
-**54 of 131 buildable projects produce firmware** (32 built from source + 22 downloaded from author releases). The remaining projects need updates to compile against current libDaisy v7.0.1 / DaisySP V1.0.0 and are marked with **"needs update"** in the catalog below. Some projects use non-standard build systems (CMake, Cargo/Rust, STM32CubeIDE, Arduino) and are cataloged but not yet integrated into the automated build.
+**~76 of 130 buildable projects produce firmware** (built from source or downloaded from author releases). Automated pre-build patches handle DaisySP V1.0.0 API changes (MoogLadder/ReverbSc moved to LGPL, LadderFilter rename, audio callback const, GPIO struct API). 7 projects need manual porting and are marked **"needs update"**. Some projects use non-standard build systems (CMake, Cargo/Rust, STM32CubeIDE, Arduino) and are cataloged but not yet integrated.
 
-Common issues: older libDaisy API (`MoogLadder` removed, `OledDisplay` template changes, `dsy_gpio` method renames), hardcoded paths, missing submodules. **PRs welcome** — most fixes are straightforward find-and-replace API migrations. See the [build logs](../../actions) for specific errors.
+**PRs welcome** for the remaining projects. See the [build logs](../../actions) for specific errors.
 
 Projects that already publish `.bin` files in their own GitHub releases are downloaded directly and always work regardless of build compatibility.
 

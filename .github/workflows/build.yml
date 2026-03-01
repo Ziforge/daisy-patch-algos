@@ -85,8 +85,8 @@ jobs:
         if: steps.count.outputs.count > 0
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: build-${{ github.run_number }}
-          name: "Firmware Build #${{ github.run_number }}"
+          tag_name: build-${{ github.run_number }}-${{ github.run_attempt }}
+          name: "Firmware Build #${{ github.run_number }}.${{ github.run_attempt }}"
           body: |
             Automated firmware build from projects.json.
 

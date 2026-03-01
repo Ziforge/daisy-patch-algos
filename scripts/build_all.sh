@@ -184,6 +184,7 @@ build_project() {
                 "DAISYSP_DIR=${SOURCES_ROOT}/DaisySP"
                 "LIBDAISY_DIR=${SOURCES_ROOT}/libDaisy"
                 "SYSTEM_FILES_DIR=${SOURCES_ROOT}/libDaisy/core"
+                "USE_DAISYSP_LGPL=1"
             )
 
             if [ -n "$make_target" ] && [ "$make_target" != "null" ]; then
@@ -212,7 +213,7 @@ build_project() {
                 return 1
             fi
             ;;
-        arduino|platformio|micropython|gen~|none|cmake|cargo|stm32cubeide)
+        arduino|platformio|micropython|gen~|none|cmake|cargo|stm32cubeide|needs-update)
             warn "Skipping ${name} (requires ${build_system})"
             return 1
             ;;
