@@ -62,7 +62,7 @@
       "license": "MIT",
       "build_dir": "patch/Nimbus",
       "build_system": "make",
-      "pre_build": "sed -i \"/SYSTEM_FILES_DIR/i APP_TYPE = BOOT_SRAM\" Makefile"
+      "pre_build": "sed -i \"/SYSTEM_FILES_DIR/i APP_TYPE = BOOT_QSPI\" Makefile"
     },
     {
       "name": "DaisyExamples-Patch-Noise",
@@ -835,7 +835,7 @@
       "license": "unknown",
       "build_dir": ".",
       "build_system": "make",
-      "pre_build": "sed -i \"s/BOOT_SRAM_EDITED/BOOT_SRAM/\" src/Makefile"
+      "pre_build": "sed -i \"s/BOOT_SRAM_EDITED/BOOT_SRAM/\" src/Makefile && echo \"CPPFLAGS += -Wno-error=sign-compare\" >> src/Makefile"
     },
     {
       "name": "Blossom",
@@ -923,7 +923,7 @@
       "license": "unknown",
       "build_dir": ".",
       "build_system": "make",
-      "pre_build": "echo \"C_INCLUDES += -I.\" >> Makefile"
+      "pre_build": "echo \"C_INCLUDES += -I.\" >> Makefile && sed -i \"s/dsy_gpio_read(&hw\\.gate_in_1)/hw.gate_in_1.State()/g;s/dsy_gpio_read(&hw\\.gate_in_2)/hw.gate_in_2.State()/g\" src/controls.cpp"
     },
     {
       "name": "DaisyX7",
@@ -1261,7 +1261,8 @@
       ],
       "license": "unknown",
       "build_dir": ".",
-      "build_system": "make"
+      "build_system": "make",
+      "pre_build": "sed -i \"/SYSTEM_FILES_DIR/i APP_TYPE = BOOT_SRAM\" Makefile"
     },
     {
       "name": "TimeMachine",
@@ -1438,8 +1439,8 @@
       ],
       "license": "MIT",
       "build_dir": ".",
-      "build_system": "make",
-      "pre_build": "sed -i \"s/Wavefolder\\.cpp/wavefolder.cpp/;s/Harmonics\\.cpp/harmonics.cpp/\" Makefile && sed -i 's/#include \\\"Wavefolder.h\\\"/#include \\\"wavefolder.h\\\"/;s/#include \\\"Harmonics.h\\\"/#include \\\"harmonics.h\\\"/' 2Cats1Bag.cpp"
+      "build_system": "needs-update",
+      "pre_build": null
     },
     {
       "name": "audrey-daisy",
